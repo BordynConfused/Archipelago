@@ -283,6 +283,7 @@ class SC2Context(CommonContext):
             launching: typing.Union[bool, int] = False  # if int -> mission ID
             refresh_from_launching = True
             first_check = True
+            player_race = Race.Terran
             ctx: SC2Context
 
             def __init__(self, ctx):
@@ -386,6 +387,30 @@ class SC2Context(CommonContext):
                             category_panel.add_widget(Label(text=""))
                             self.mission_panel.add_widget(category_panel)
 
+                        """Code for race selection buttons"""
+                        race_buttons = MissionCategory()
+                        race_buttons.add_widget(
+                            Label(text="Race Select", size_hint_y=None, height=50, outline_width=1))
+
+                        terran_button = MissionButton(text="Terran", size_hint_y=None, height=50)
+                        terran_button.tooltip_text = "Select Terran"
+                        terran_button.bind(on_press=lambda *args: self.set_race(Race.Terran))
+
+                        zerg_button = MissionButton(text="Zerg", size_hint_y=None, height=50)
+                        zerg_button.tooltip_text = "Select Zerg"
+                        zerg_button.bind(on_press=lambda *args: self.set_race(Race.Zerg))
+
+                        protoss_button = MissionButton(text="Protoss", size_hint_y=None, height=50)
+                        protoss_button.tooltip_text = "Select Protoss"
+                        protoss_button.bind(on_press=lambda *args: self.set_race(Race.Protoss))
+
+                        race_buttons.add_widget(protoss_button)
+                        race_buttons.add_widget(zerg_button)
+                        race_buttons.add_widget(terran_button)
+
+                        self.mission_panel.add_widget(race_buttons)
+
+
                 elif self.launching:
                     self.refresh_from_launching = False
 
@@ -394,6 +419,10 @@ class SC2Context(CommonContext):
                                                              lookup_id_to_mission[self.launching]))
                     if self.ctx.ui:
                         self.ctx.ui.clear_tooltip()
+
+            """Set race for map selection"""
+            def set_race(self, race):
+                self.player_race = race
 
             def mission_callback(self, button):
                 if not self.launching:
@@ -534,7 +563,7 @@ async def starcraft_launch(ctx: SC2Context, mission_id: int):
     sc2_logger.info(f"Launching {lookup_id_to_mission[mission_id]}. If game does not launch check log file for errors.")
 
     with DllDirectory(None):
-        run_game(sc2.maps.get(maps_table[mission_id - 1]), [Bot(Race.Terran, ArchipelagoBot(ctx, mission_id),
+        run_game(sc2.maps.get(maps_table[mission_id - 1]), [Bot(ctx.ui.player_race, ArchipelagoBot(ctx, mission_id),
                                                                 name="Archipelago", fullscreen=True)], realtime=True)
 
 
