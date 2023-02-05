@@ -23,6 +23,8 @@ def get_full_item_list():
 
 
 SC2WOL_ITEM_ID_OFFSET = 1000
+SC2WOL_ZERG_OFFSET = 30
+SC2WOL_PROTOSS_OFFSET = 60
 
 item_table = {
     "Marine": ItemData(0 + SC2WOL_ITEM_ID_OFFSET, "Unit", 0, classification=ItemClassification.progression),
@@ -43,6 +45,33 @@ item_table = {
     "Ghost": ItemData(15 + SC2WOL_ITEM_ID_OFFSET, "Unit", 15, classification=ItemClassification.progression),
     "Spectre": ItemData(16 + SC2WOL_ITEM_ID_OFFSET, "Unit", 16, classification=ItemClassification.progression),
     "Thor": ItemData(17 + SC2WOL_ITEM_ID_OFFSET, "Unit", 17, classification=ItemClassification.progression),
+
+    "Zealot": ItemData(0 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 0, classification=ItemClassification.progression),
+    "Stalker": ItemData(1 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 1, classification=ItemClassification.progression),
+    "High Templar": ItemData(2 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 2, classification=ItemClassification.progression),
+    "Dark Templar": ItemData(3 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 3, classification=ItemClassification.progression),
+    "Immortal": ItemData(4 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 4, classification=ItemClassification.progression),
+    "Colossus": ItemData(5 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 5, classification=ItemClassification.progression),
+    "Phoenix": ItemData(6 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 6, classification=ItemClassification.progression),
+    "Void Ray": ItemData(7 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 7, classification=ItemClassification.progression),
+    "Carrier": ItemData(8 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_PROTOSS_OFFSET, "Protoss", 8, classification=ItemClassification.progression),
+
+    "Zergling":  ItemData(0 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 0, classification=ItemClassification.progression),
+    "Baneling": ItemData(1 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 1, classification=ItemClassification.progression),
+    "Queen": ItemData(2 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 2, classification=ItemClassification.progression),
+    "Roach": ItemData(3 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 3, classification=ItemClassification.progression),
+    "Ravager": ItemData(4 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 4, classification=ItemClassification.progression),
+    "Hydralisk": ItemData(5 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 5, classification=ItemClassification.progression),
+    "Lurker": ItemData(6 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 6, classification=ItemClassification.progression),
+    "Infestor": ItemData(7 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 7, classification=ItemClassification.progression),
+    "Mutalisk": ItemData(8 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 8, classification=ItemClassification.progression),
+    "Brood Lord": ItemData(9 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 9, classification=ItemClassification.progression),
+    "Corruptor": ItemData(10 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 10, classification=ItemClassification.progression),
+    "Overseer": ItemData(11 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 11, classification=ItemClassification.progression),
+    "Ultralisk": ItemData(12 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 12, classification=ItemClassification.progression),
+    "Spine Crawler": ItemData(13 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 13, classification=ItemClassification.progression),
+    "Spore Crawler": ItemData(14 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 14, classification=ItemClassification.progression),
+    "Scourge": ItemData(15 + SC2WOL_ITEM_ID_OFFSET + SC2WOL_ZERG_OFFSET, "Zerg", 15, classification=ItemClassification.progression),
 
     "Progressive Infantry Weapon": ItemData(100 + SC2WOL_ITEM_ID_OFFSET, "Upgrade", 0, quantity=3),
     "Progressive Infantry Armor": ItemData(102 + SC2WOL_ITEM_ID_OFFSET, "Upgrade", 2, quantity=3),
@@ -131,19 +160,9 @@ item_table = {
     "Hive Mind Emulator": ItemData(618 + SC2WOL_ITEM_ID_OFFSET, "Laboratory", 18, ItemClassification.progression),
     "Psi Disrupter": ItemData(619 + SC2WOL_ITEM_ID_OFFSET, "Laboratory", 19, classification=ItemClassification.progression),
 
-    "Zealot": ItemData(700 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 0, classification=ItemClassification.progression),
-    "Stalker": ItemData(701 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 1, classification=ItemClassification.progression),
-    "High Templar": ItemData(702 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 2, classification=ItemClassification.progression),
-    "Dark Templar": ItemData(703 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 3, classification=ItemClassification.progression),
-    "Immortal": ItemData(704 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 4, classification=ItemClassification.progression),
-    "Colossus": ItemData(705 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 5, classification=ItemClassification.progression),
-    "Phoenix": ItemData(706 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 6, classification=ItemClassification.progression),
-    "Void Ray": ItemData(707 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 7, classification=ItemClassification.progression),
-    "Carrier": ItemData(708 + SC2WOL_ITEM_ID_OFFSET, "Protoss", 8, classification=ItemClassification.progression),
-
-    "+15 Starting Minerals": ItemData(800 + SC2WOL_ITEM_ID_OFFSET, "Minerals", 15, quantity=0, classification=ItemClassification.filler),
-    "+15 Starting Vespene": ItemData(801 + SC2WOL_ITEM_ID_OFFSET, "Vespene", 15, quantity=0, classification=ItemClassification.filler),
-    "+2 Starting Supply": ItemData(802 + SC2WOL_ITEM_ID_OFFSET, "Supply", 2, quantity=0, classification=ItemClassification.filler),
+    "+15 Starting Minerals": ItemData(700 + SC2WOL_ITEM_ID_OFFSET, "Minerals", 15, quantity=0, classification=ItemClassification.filler),
+    "+15 Starting Vespene": ItemData(701 + SC2WOL_ITEM_ID_OFFSET, "Vespene", 15, quantity=0, classification=ItemClassification.filler),
+    "+2 Starting Supply": ItemData(702 + SC2WOL_ITEM_ID_OFFSET, "Supply", 2, quantity=0, classification=ItemClassification.filler),
 
     # "Keystone Piece": ItemData(850 + SC2WOL_ITEM_ID_OFFSET, "Goal", 0, quantity=0, classification=ItemClassification.progression_skip_balancing)
 }
@@ -210,8 +229,9 @@ type_flaggroups: typing.Dict[str, int] = {
     "Mercenary": 5,
     "Laboratory": 6,
     "Protoss": 7,
-    "Minerals": 8,
-    "Vespene": 9,
-    "Supply": 10,
-    "Goal": 11
+    "Zerg": 8,
+    "Minerals": 9,
+    "Vespene": 10,
+    "Supply": 11,
+    "Goal": 12
 }

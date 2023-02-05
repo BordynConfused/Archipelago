@@ -601,11 +601,11 @@ class ArchipelagoBot(sc2.bot_ai.BotAI):
                 difficulty = calc_difficulty(self.ctx.difficulty_override)
             else:
                 difficulty = calc_difficulty(self.ctx.difficulty)
-            await self.chat_send("ArchipelagoLoad {} {} {} {} {} {} {} {} {} {} {} {} {}".format(
+            await self.chat_send("ArchipelagoLoad {} {} {} {} {} {} {} {} {} {} {} {} {} {}".format(
                 difficulty,
                 start_items[0], start_items[1], start_items[2], start_items[3], start_items[4],
                 start_items[5], start_items[6], start_items[7], start_items[8], start_items[9],
-                self.ctx.all_in_choice, start_items[10]))
+                start_items[10], self.ctx.all_in_choice, start_items[11]))
             self.last_received_update = len(self.ctx.items_received)
 
         else:
@@ -626,9 +626,9 @@ class ArchipelagoBot(sc2.bot_ai.BotAI):
 
             if self.last_received_update < len(self.ctx.items_received):
                 current_items = calculate_items(self.ctx.items_received)
-                await self.chat_send("UpdateTech {} {} {} {} {} {} {} {}".format(
+                await self.chat_send("UpdateTech {} {} {} {} {} {} {} {} {}".format(
                     current_items[0], current_items[1], current_items[2], current_items[3], current_items[4],
-                    current_items[5], current_items[6], current_items[7]))
+                    current_items[5], current_items[6], current_items[7], current_items[8]))
                 self.last_received_update = len(self.ctx.items_received)
 
             if game_state & 1:
